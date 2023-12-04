@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+         version="4.0">
+
+    <context-param>
+        <param-name>INIT_PARAM</param-name>
+        <param-value>web.xml에서 설정한 변수</param-value>
+    </context-param>
+
+    <!--<error-page>
+        <error-code>404</error-code>
+        <location>/02/Exception.jsp</location>
+    </error-page>
+    <error-page>
+        <error-code>405</error-code>
+        <location>/02/Exception.jsp</location>
+    </error-page>
+    <error-page>
+        <error-code>500</error-code>
+        <location>/02/Exception.jsp</location>
+    </error-page>-->
+    <context-param>
+        <param-name>OracleDriver</param-name>
+        <param-value>oracle.jdbc.OracleDriver</param-value>
+    </context-param>
+    <context-param>
+        <param-name>OracleURL</param-name>
+        <param-value>jdbc:oracle:thin:@localhost:1521:ORCL</param-value>
+    </context-param>
+    <context-param>
+        <param-name>OracleId</param-name>
+        <param-value>scott</param-value>
+    </context-param>
+    <context-param>
+        <param-name>OraclePwd</param-name>
+        <param-value>tiger</param-value>
+    </context-param>
+</web-app>
