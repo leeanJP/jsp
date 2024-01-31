@@ -2,8 +2,8 @@
     pageEncoding="UTF-8"
 %>
 <%!
-    String str11 ="JSP";
-    String str22 ="안녕하세요~~~";
+    String str111 ="JSP";
+    String str222 ="안녕하세요~~~";
 
 %>
 
