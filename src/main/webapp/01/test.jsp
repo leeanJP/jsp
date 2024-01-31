@@ -2,8 +2,8 @@
     pageEncoding="UTF-8"
 %>
 <%!
-    String str11 ="JSP";
-    String str22 ="안녕하세요~~~";
+    String str3 ="JSP";
+    String str4 ="안녕하세요~~~";
 
 %>
 
@@ -40,10 +40,10 @@ asdasdasd
 </head>
 <body>
 <%-- test를 위한 코드 --%>
-    <h2>처음 만드는 <%= str11%></h2>
+    <h2>처음 만드는 <%= str3%></h2>
     <p>
         <%
-            out.println(str22 + str11 + "입니다. 열심히 공부합시다.");
+            out.println(str4 + str3 + "입니다. 열심히 공부합시다.");
         %>
     </p>
 </body>
