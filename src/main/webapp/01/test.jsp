@@ -2,10 +2,12 @@
     pageEncoding="UTF-8"
 %>
 <%!
-    String str1 ="JSP";
-    String str2 ="안녕하세요";
+    String str11 ="JSP";
+    String str22 ="안녕하세요~~~";
 
 %>
+
+<%-- test를 위한 코드 --%>
 <%--
 asdasdasd
     <%@ %> 지시어
@@ -25,7 +27,7 @@ asdasdasd
         > JSP 페이지가 요청을 받아서 실행될때 동작해야할 코드를 작성하는 영역
            _jspService() 내부에 기술된다.
            자바에서는 메소드 내부에 또 다른 메서드를 선언하는게 불가능
-
+<%-- test를 위한 코드 --%>
     <%= %> 스크립트 요소(표현식)
         > 실행 결과로 하나의 값이 남는 문장
           상수, 변수, 수식,메서드반환값
@@ -33,13 +35,15 @@ asdasdasd
 --%>
 <html>
 <head>
+<%-- test를 위한 코드 --%>
     <title>Hello JSP</title>
 </head>
 <body>
-    <h2>처음 만드는 <%= str1%></h2>
+<%-- test를 위한 코드 --%>
+    <h2>처음 만드는 <%= str11%></h2>
     <p>
         <%
-            out.println(str2 + str1 + "입니다. 열심히 공부합시다.");
+            out.println(str22 + str11 + "입니다. 열심히 공부합시다.");
         %>
     </p>
 </body>
