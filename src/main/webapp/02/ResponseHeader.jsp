@@ -16,6 +16,8 @@
         response.addDateHeader("today" , add_date);
         response.addIntHeader("myNum", add_int);
         response.addIntHeader("myNum", 1000);   //추가
+        response.addIntHeader("myNum", 2000);   //추가
+        response.addIntHeader("myNum", 3000);   //추가
         response.addHeader("myName", add_str);
         response.setHeader("myName", "안중근"); //수정
     %>
