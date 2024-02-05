@@ -8,6 +8,23 @@
         <param-value>web.xml의 초기화 매개변수</param-value>
     </context-param>
 
+    <context-param>
+        <param-name>OracleDriver</param-name>
+        <param-value>oracle.jdbc.OracleDriver</param-value>
+    </context-param>
+    <context-param>
+        <param-name>OracleURL</param-name>
+        <param-value>jdbc:oracle:thin:@localhost:1521:XE</param-value>
+    </context-param>
+    <context-param>
+        <param-name>OracleId</param-name>
+        <param-value>system</param-value>
+    </context-param>
+    <context-param>
+        <param-name>OraclePwd</param-name>
+        <param-value>oracle</param-value>
+    </context-param>
+
 <!--    <error-page>-->
 <!--        <error-code>404</error-code>-->
 <!--        <location>/02/Exception.jsp</location>-->
@@ -20,4 +37,5 @@
 <!--        <error-code>500</error-code>-->
 <!--        <location>/02/Exception.jsp</location>-->
 <!--    </error-page>-->
+
 </web-app>
