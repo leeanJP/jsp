@@ -1,5 +1,7 @@
 package com.common;
 
+import com.util.CookieManager;
+
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
@@ -26,9 +28,7 @@ public class DBConnPool {
 
             //커넥션 풀을통해서 Connection 얻기
             con = source.getConnection();
-
             System.out.println("DB 커넥션풀 연결 성공");
-
         }catch (Exception e){
             System.out.println("DB 커넥션풀 연결 실패");
             e.printStackTrace();

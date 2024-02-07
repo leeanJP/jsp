@@ -57,6 +57,13 @@
             <version>19.21.0.0</version>
         </dependency>
 
+        <!-- https://mvnrepository.com/artifact/org.apache.tomcat/tomcat-catalina -->
+        <dependency>
+            <groupId>org.apache.tomcat</groupId>
+            <artifactId>tomcat-catalina</artifactId>
+            <version>10.1.18</version>
+        </dependency>
+
 
 
     </dependencies>

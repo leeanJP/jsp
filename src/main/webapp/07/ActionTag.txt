@@ -1,0 +1,30 @@
+액션태그 란?
+
+> JSP 표준태그
+ -페이지 사이에서 이동제어
+ -자바빈 생성
+<jsp:태그명 />
+
+특징
+-xml문법을 따른다
+-반드시 종료 태그가 있어야함
+-액션 태그사이에 주석을 넣으면 오류 발생
+-액션 태그에 속성값을 넣을 때 표현식 <%=%> 사용 가능
+
+종류
+<jsp:include> : 외부 파일을 현재 파일에 포함
+<jsp:forward> : 다른 페이지로 요청을 넘김
+<jsp:useBean>     : 자바빈즈를 생성하고 값을 설정하거나 가져옴
+<jsp:setProperty>
+<jsp:getProperty>
+<jsp:param> : 다른 페이지로 매개변수를 전달함.
+
+<jsp:useBean id="자바빈즈 이름" class="사용할 패키지와 클래스명" scope="저장할 영역(request, session)">
+<jsp:setProperty name="자비빈즈 이름" property="속성명(name)" value="설정할 값">
+<jsp:getProperty name="자비빈즈 이름" property="속성명(name)">
+
+자바 빈즈(Java Beans) 란?
+- JSP 액션태그로 접근할 수 있는 자바클래스
+- 자바빈즈는 하나의 JSP 페이지에 종속되는게 X 여러 JSP 페이지에서 사용가능
+- 비즈니스 로직을 담당하는 자바 프로그램 단위
+
