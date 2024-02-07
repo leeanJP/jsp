@@ -22,3 +22,28 @@ Connection 객체를 가져다가 사용하는 방법.
 5.작업이 끝나면 커넥션 객체를 풀에 반환함.
 
 
+server.xml 수정 사항
+tomcat/conf/server.xml
+<GlobalNamingResources>
+ <!-- GlobalNamingResources 내부만 수정-->
+ <Resource auth="Container"
+ 			  driverClassName="oracle.jdbc.OracleDriver"
+ 			  type="javax.sql.DataSource"
+ 			  initialSize="0"
+ 			  minIdle="5"
+ 			  maxTotal="20"
+ 			  maxIdle="20"
+ 			  maxWaitMillis="5000"
+ 			  url="jdbc:oracle:thin:@localhost:1521:xe"
+ 			  name="dbcp_myoracle"
+ 			  username="system"
+ 			  password="oracle" />
+</GlobalNamingResources>
+context.xml 수정 사항
+tomcat/conf/context.xml
+<Context>
+<!-- Context 내부만 수정-->
+<ResourceLink global="dbcp_myoracle" name="dbcp_myoracle"
+              type="javax.sql.DataSource"/>
+
+</Context>
