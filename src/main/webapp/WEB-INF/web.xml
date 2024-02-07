@@ -18,11 +18,11 @@
     </context-param>
     <context-param>
         <param-name>OracleId</param-name>
-        <param-value>system</param-value>
+        <param-value>scott</param-value>
     </context-param>
     <context-param>
         <param-name>OraclePwd</param-name>
-        <param-value>oracle</param-value>
+        <param-value>TIGER</param-value>
     </context-param>
 
     <session-config>

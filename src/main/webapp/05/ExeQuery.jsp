@@ -15,7 +15,7 @@
   JDBCConnect jdbc = new JDBCConnect();
 
   //쿼리문 생성
-  String sql = "SELECT id,pass,name,regidate FROM scott.member_jsp";
+  String sql = "SELECT id,pass,name,regidate FROM member_jsp";
   Statement stmt = jdbc.con.createStatement();
 
   //쿼리 실행
