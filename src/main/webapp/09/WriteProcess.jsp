@@ -15,7 +15,6 @@
     BoardDAO dao = new BoardDAO();
     int iResult = dao.insertWrite(dto);
 
-
     dao.close();
 
     if(iResult == 1){ //성공

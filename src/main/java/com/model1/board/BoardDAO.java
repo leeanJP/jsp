@@ -43,18 +43,57 @@ public class BoardDAO extends DBConnPool {
         List<BoardDTO> bbs = new ArrayList<BoardDTO>();
         //쿼리문 작성
         String query = "SELECT * FROM scott.board_jsp";
-//                + " SELECT Tb.*, ROWNUM rNum FROM ("
-//                + " SELECT * FROM board_jsp";
         if(map.get("searchWord") != null){
             query += " WHERE "  + map.get("searchField") + " "
                     +" LIKE '%" + map.get("searchWord") + "%'";
         }
         query += " ORDER BY num desc" ;
-//                + " ) Tb"
-//                + " )";
         try {
             stmt = con.createStatement();
             rs = stmt.executeQuery(query);
+            while(rs.next()){
+                //한 row의 내용을 DTO에 저장
+                BoardDTO dto = new BoardDTO();
+                dto.setNum(rs.getString("num"));
+                dto.setTitle(rs.getString("title"));
+                dto.setContent(rs.getString("content"));
+                dto.setId(rs.getString("id"));
+                dto.setPostdate(rs.getDate("postdate"));
+                dto.setVisitcount(rs.getString("visitcount"));
+                bbs.add(dto);
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+            System.out.println("selectList 오류발생");
+        }
+        return bbs;
+    }
+
+
+    //페이징 처리한 게시물 리스트
+    public List<BoardDTO> selectListPage(Map<String,Object>map){
+        //쿼리 결과를 담을 변수
+        List<BoardDTO> bbs = new ArrayList<BoardDTO>();
+        //쿼리문 작성
+        String query = "SELECT * FROM ("
+                + " SELECT Tb.*, ROWNUM rNum FROM ("
+                + " SELECT * FROM scott.board_jsp";
+        if(map.get("searchWord") != null){
+            query += " WHERE "  + map.get("searchField") + " "
+                    +" LIKE '%" + map.get("searchWord") + "%'";
+        }
+        query += " ORDER BY num DESC"
+                + " ) Tb"
+                + " )"
+                + " WHERE rNUM BETWEEN ? AND ?";
+        try {
+            psmt = con.prepareStatement(query);
+            psmt.setString(1, map.get("start").toString());
+            psmt.setString(2, map.get("end").toString());
+            System.out.println("start : " + map.get("start"));
+            System.out.println("end : " + map.get("end"));
+            rs = psmt.executeQuery();
+
             while(rs.next()){
                 //한 row의 내용을 DTO에 저장
                 BoardDTO dto = new BoardDTO();
@@ -90,7 +129,6 @@ public class BoardDAO extends DBConnPool {
             psmt.setString(3,dto.getId());
 
             result= psmt.executeUpdate();
-            System.out.println("반환값 확인 : " + result);
 
         }catch (Exception e){
             e.printStackTrace();
