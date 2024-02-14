@@ -1,0 +1,11 @@
+JSTL
+
+1. 코어 태그
+   <c:set var="변수명" value="값" scope="영역"/>
+   <c:set var="변수명"  scope="영역">
+    value 값
+   </c:set>
+
+   target: 자바빈즈 설정
+   property : 자바빈즈의 속성을 지정
+
