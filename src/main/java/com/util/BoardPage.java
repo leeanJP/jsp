@@ -33,7 +33,6 @@ public class BoardPage {
             blockCount++;
         }
 
-
         //다음 페이지 블록 바로가기
         if(pageTemp <= totalPage){
             pagingStr += "<a href='" + reqUrl + "?pageNum=" + pageTemp + "'>[다음 블록]</a>";

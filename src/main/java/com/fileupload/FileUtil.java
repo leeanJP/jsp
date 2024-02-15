@@ -19,7 +19,7 @@ public class FileUtil {
         throws ServletException, IOException {
 
         //Part 객체를 통해 서버로 전송된 파일명 읽기
-        Part part = req.getPart("attachedFile");
+        Part part = req.getPart("ofile");
         //Part 객체의 헤더값 content-disposition 값 읽기
         String partHeader = part.getHeader("content-disposition");
         //form-data; name="attachedFile"; filename="파일명.확장자"
