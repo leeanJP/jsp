@@ -8,45 +8,45 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
-@WebServlet("/13/UploadProcess.do")
+@WebServlet("/13/MultipleProcess.do")
 @MultipartConfig(
         maxFileSize = 1024*1024*1,
         maxRequestSize = 1024*1024*10
 )
-public class UploadProcess extends HttpServlet {
+public class MultipleProcess extends HttpServlet {
     private static final long serialVersionUID = 1L;
-
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp)
-        throws ServletException, IOException {
+            throws ServletException, IOException {
 
         try {
-            //드라이브 명으로 절대경로 지정하기
-            //saveDirectory =  C:\jp\jsp\src\main\webapp\Uploads
             String saveDirectory = getServletContext().getRealPath("/Uploads");
             System.out.println("saveDir 확인 : " +saveDirectory);
 
-            //파일 업로드
-            String originalFileName = FileUtil.uploadFile(req, saveDirectory);
+            //다중 파일 업로드
+            ArrayList<String> listFileName = FileUtil.multipleFile(req,saveDirectory);
 
-            //저장된 파일명 변경
-            String savedFileName = FileUtil.renameFile(saveDirectory, originalFileName);
+            for(String originalFileName : listFileName){
+                //저장된 파일명 변경
+                String savedFileName = FileUtil.renameFile(saveDirectory, originalFileName);
 
-            //DB에 저장하기
-            insertFile(req, originalFileName, savedFileName);
-            //파일 목록 페이지로 이동
+                //DB에 저장하기
+                insertFile(req, originalFileName, savedFileName);
+            }
+
             resp.sendRedirect("FileList.jsp");
-
-        }catch (Exception e ){
+        }catch (Exception e){
             e.printStackTrace();
-            req.setAttribute("errMessage", "파일 업로드 오류");
-            req.getRequestDispatcher("FileUploadMain.jsp").forward(req, resp);
+            req.setAttribute("errMessage", "멀티파일 업로드 오류");
+            req.getRequestDispatcher("MultiUploadMain.jsp").forward(req, resp);
         }
+
 
     }
 
-    //파일 저장 메소드
+
     private void insertFile(HttpServletRequest req, String oFileName, String sFileName){
         //file 이외의 폼 값
         String title = req.getParameter("title");
@@ -83,6 +83,4 @@ public class UploadProcess extends HttpServlet {
 
 
     }
-
-
 }
