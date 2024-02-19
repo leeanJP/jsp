@@ -20,38 +20,36 @@
                 form.content.focus();
                 return false;
             }
-            if(form.pass.value == ""){
-                alert("비밀번호를 입력 하세요");
-                form.pass.focus();
-                return false;
-            }
         }
     </script>
 </head>
 <body>
 <h2>파일 첨부형 게시판 - 글쓰기</h2>
-<form name="writeFrm" method="post" action="../mvcboard/write.do" onsubmit="return validateForm(this);"
+<form name="writeFrm" method="post" action="../mvcboard/edit.do" onsubmit="return validateForm(this);"
       enctype="multipart/form-data">
+    <input type="hidden" name="idx" value="${dto.idx}">
+    <input type="hidden" name="prevOfile" value="${dto.ofile}">
+    <input type="hidden" name="prevSfile" value="${dto.sfile}">
     <table border="1" width="90%">
         <tr>
             <td>작성자</td>
-            <td><input type="text" name="name" style="width: 150px;"/></td>
+            <td><input type="text" name="name" style="width: 150px;" value="${dto.name}"/></td>
         </tr>
         <tr>
             <td>제목</td>
-            <td><input type="text" name="title" style="width: 90%"/></td>
+            <td><input type="text" name="title" style="width: 90%" value="${dto.title}"/></td>
         </tr>
         <tr>
             <td>내용</td>
-            <td><textarea name="content" style="width: 90%; height: 100px"></textarea></td>
+            <td>
+                <textarea name="content" style="width: 90%; height: 100px">
+                    ${dto.content}
+                </textarea>
+            </td>
         </tr>
         <tr>
             <td>첨부파일</td>
             <td><input type="file" name="ofile"></td>
-        </tr>
-        <tr>
-            <td>비밀번호</td>
-            <td><input type="password" name="pass" width="100px;"></td>
         </tr>
         <tr>
             <td colspan="2" align="center">
