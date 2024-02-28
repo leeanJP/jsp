@@ -59,7 +59,18 @@
         <filter-name>SetCharEncoding</filter-name>
         <url-pattern>/*</url-pattern>
     </filter-mapping>
-
+    <filter>
+        <filter-name>BasicFilter</filter-name>
+        <filter-class>com.filter.BasicFilter</filter-class>
+        <init-param>
+            <param-name>FILTER_INIT_PARAM</param-name>
+            <param-value>필터 초기화 매개변수</param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>BasicFilter</filter-name>
+        <url-pattern>/15/BasicFilter.jsp</url-pattern>
+    </filter-mapping>
     <servlet>
         <servlet-name>HelloServlet</servlet-name>
         <servlet-class>com.servlet.HelloServlet</servlet-class>
@@ -109,8 +120,17 @@
         <servlet-name>MVCBoardWrite</servlet-name>
         <url-pattern>/mvcboard/write.do</url-pattern>
     </servlet-mapping>
-
-
+    <servlet>
+        <servlet-name>HomeServlet</servlet-name>
+        <servlet-class>com.model2.HomeController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>HomeServlet</servlet-name>
+        <url-pattern>/hello</url-pattern>
+    </servlet-mapping>
+    <listener>
+        <listener-class>com.listener.ContextListener</listener-class>
+    </listener>
 
 
 
